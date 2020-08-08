@@ -11,8 +11,8 @@ router.post('/:state/:dateStart/:dataEnd', async (req, res, next) => {
     const { state, dateStart, dataEnd } = req.params
     const cidadesArr = []
 
-    const initialDate = await axios.get(`https://brasil.io/api/dataset/covid19/caso/data/?date=${dateStart}&format=json&state=${state}`)
-    const finalDate = await axios.get(`https://brasil.io/api/dataset/covid19/caso/data/?date=${dataEnd}&format=json&state=${state}`)
+    const initialDate = await axios.get(`https://brasil.io/api/dataset/covid19/caso/data/?date=${dateStart}&format=json&state=${state.toUpperCase()}`)
+    const finalDate = await axios.get(`https://brasil.io/api/dataset/covid19/caso/data/?date=${dataEnd}&format=json&state=${state.toUpperCase()}`)
     
     const initialD = initialDate.data.results
     const finalD = finalDate.data.results
